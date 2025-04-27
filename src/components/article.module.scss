@@ -1,0 +1,250 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use 'sass:color';
+
+.article {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  border: 1px solid $gray-text-color;
+
+  .articleInfo{
+    @include flex-center-vert;
+    width: 100%;
+    justify-content: space-between;
+
+    .articleInfoLeft,
+    .articleInfoRight{
+      @include flex-center-vert;
+      gap: 15px;
+    }
+
+    .articleInfoLeft{
+      
+      .traffic{
+        @include flex-center-vert;
+        gap: 5px;
+      }
+    }
+
+    .articleInfoRight{
+
+      .sent{
+        color: $background-right-color;
+        padding: 2px 7px;
+        background-color: $sent-color;
+        border-radius: 5px;
+        font-size: 0.8rem;
+      }
+    }
+
+
+  }
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .info{
+      @include flex-center-vert;
+      gap: 15px;
+    }
+
+    .articleBody{
+      white-space: pre-line;
+      line-height: 1.5rem;
+      margin-top: 10px;
+      margin-bottom: 5pxs;
+      .spanHighlight{
+        background-color: $span-color;
+        padding: 2px;
+        border-radius: 5px;
+      }
+    }
+
+
+    .showMore{
+      @include flex-center-vert;
+      gap: 5px;
+      color: $link-color;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+      font-size: 1rem;
+
+      .arrow{
+        transition: all ease 0.3s;
+      }
+
+      .arrow.open{
+        transform: rotate(-90deg);
+      }
+
+    }
+  }
+
+  .tags{
+    @include flex-center-vert;
+    gap: 10px;
+    .tag{
+      @include flex-center-vert;
+      gap: 5px;
+      padding: 2px 7px;
+      font-size: 0.8rem;
+      border-radius: 20px;
+      border: 1px solid $gray-text-color;
+    }
+
+    .showAll{
+      color: $link-color;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+    }
+  }
+
+  .originalSource{
+    color: $link-color;
+    border: none;
+    width: fit-content; 
+    font-size: 1rem;
+    background-color: $background-left-color;
+    padding: 10px;
+    border-radius: 10px;
+
+    .link{
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .duplicatesDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .info{
+      @include flex-center-vert;
+      justify-content: space-between;
+
+      .selectDiv{
+        @include flex-center-vert;
+        gap: 10px;
+        
+        .select{
+          background-color: transparent;
+          border: none;
+        }
+
+        .sortDir{
+          color: white;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          width: fit-content;
+          transition: all ease 0.3s;
+        }
+
+        .sortDir.asc{
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .diplicate{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid $link-color;
+    padding: 15px;
+    border-radius: 10px;
+
+    .info{
+      @include flex-center-vert;
+      justify-content: space-between;
+
+      .infoLeft,
+      .infoRight{
+        @include flex-center-vert;
+        gap: 10px;
+      }
+    }
+
+    .infoBelow{
+      @include flex-center-vert;
+      gap: 15px;
+    }
+  }
+
+  .viewDup{
+    font-size: 1rem;
+    @include flex-center-vert;
+    gap: 10px;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid $gray-text-color;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: transparent;
+    color: white;
+
+    .showDup{
+      transition: all ease 0.3s;
+    }
+
+    .showDup.open{
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.secondartText{
+  color: $gray-text-color;
+}
+
+.header{
+  color: $link-color;
+}
+
+.linkDiv{
+  @include flex-center-vert;
+  gap: 5px;
+
+  .link{
+    color: $link-color;
+    text-decoration: none;
+  
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid color.scale($link-color, $lightness: -40%);
+      margin-top: 1px;
+    }
+  }
+}
+
+.country,
+.lang,
+.author{
+  @include flex-center-vert;
+  gap: 5px;
+}
+
+.menuItemOverride {
+  button{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+}

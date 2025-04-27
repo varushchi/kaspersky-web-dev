@@ -1,0 +1,16 @@
+@forward './variables';
+@forward './mixins';
+@use './variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(to bottom right, $background-left-color, 20%, $background-right-color);
+  color: white;
+  font-family: sans-serif;
+  font-weight: 200;
+}
