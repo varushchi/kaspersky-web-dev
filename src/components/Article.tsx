@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { IData_SnippetNews } from '../types/types'
 import styles from './article.module.scss'
 import {
